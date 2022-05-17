@@ -1,5 +1,8 @@
+// Pull Sequelize
 const Sequelize = require('sequelize');
+// Pull in dotenv(which hides passwords) and configure
 require ('dotenv').config();
+// Create connection to the Database
 const sequelize = new Sequelize(
     process.env.DB_NAME, 
     process.env.DB_USER, 
