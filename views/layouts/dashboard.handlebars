@@ -1,18 +1,18 @@
+</html>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title>The Tech Blog</title>
-  
 </head>
 <body>
- <div class="jumbotron">
+
+<div class="jumbotron">
 <nav class="navbar">
   
       <p><a href="/">Home</a></p>
@@ -21,19 +21,15 @@
       <p ><a href="#" id="logout-link">Logout</a></p>
     
   </nav>
-  </div>
-  <header>
-    <h1 class="titlename"><a href="/">The Tech Blog</a></h1>
-  </header>
-  
+  <h1 class="titlename">The Tech Blog</h1>
+</div>
+ <header class="dashboard"><a href="/dashboard">Your Dashboard</a></header>
   <main>
     {{{body}}}
   </main>
-
-  
-  
+  <footer>
+    <a class= "newpostbtn" id ="new-post-form"  href="/dashboard/new">New Post</a>
+  </footer>
 </body>
-
-</html>
 <script src="/js/logout.js"></script>
-
+</html>

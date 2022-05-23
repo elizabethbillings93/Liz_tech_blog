@@ -1,47 +1,10 @@
-// // object destructuring
-
-// const {Model, DataTypes}= require('sequelize');
-// const bcrypt = require('bcrypt');
-// const sequelize = require('../config/connection');
-// class User extends Model{
-//     checkPassword(loginPw){
-//         return bcrypt.compareSync(loginPw, this.password);
-//     }
-// };
-
-// User.init({
-//     id:{
-//         type: DataTypes.INTEGER,
-//         allowNull:false,
-//         primaryKey:true,
-//         autoIncrement:true,
-//     },
-//     username:{
-//         type: DataTypes.STRING,
-//         allowNull:false,
-//     },
-//     password:{
-//         type: DataTypes.STRING,
-//         allowNull:false,
-//     },
-    
-//     },
-//     {
-//         sequelize,
-//         timestamps: false,
-//         freezeTableName:true,
-//         underscored:true,
-//         modelName:"User"
-//     });
-
-// module.exports = User;
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-// create our User model
+// Make user Model
 class User extends Model {
-  // set up method to run on instance data (per user) to check password
+  // Check Password and return crypto password
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
@@ -57,7 +20,8 @@ User.init(
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique:true,
     },
     password: {
       type: DataTypes.STRING,
@@ -68,14 +32,20 @@ User.init(
     }
   },
   {
+    //  Hooks are functions which are called before and after calls in sequelize are executed.
     hooks: {
-      // set up beforeCreate lifecycle "hook" functionality
+      // Before making this user, 
       beforeCreate: async (newUserData) => {
+        // Get password data and run through crypto and return hashed password that is no more than 10 characters
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        // Return New hashed password as new variable
         return newUserData;
       },
+      // Before updating user
       beforeUpdate: async (updatedUserData) => {
+        // Pull password from user and run through crypto and return hased password that is no more than 10 characters
         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        // Return Updated user
         return updatedUserData;
       }
     },
