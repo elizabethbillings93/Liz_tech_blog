@@ -8,7 +8,8 @@
 
 
 ##Sign Up
-<img width="406" alt="Screen Shot 2022-05-22 at 8 35 24 PM" src="https://user-images.githubusercontent.com/100626033/169727249-1b810918-6d9b-42c9-b86c-c70682d7f03c.png">
+<img width="406" alt="Screen Shot 2022-05-22 at 8 35 24 PM" src="https://user-images.githubusercontent.com/100626033/169727723-42450231-db23-4a7f-b84d-59f3bba5b94e.png">
+
 
 
 ##Dashboard
