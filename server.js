@@ -10,18 +10,18 @@ const exphbs= require ('express-handlebars');
 const helpers= require('./utils/helpers');
 // Make variable for controllers.js
 const routes = require('./controllers');
-
+require('dotenv').config();
 // Make variable for connection.js
 const sequelize= require('./config/connection');
 // Make variable for Session Storage; Cleared when page session ends
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// Access open port or 3002
+// Access open port or 3001
 const PORT = process.env.PORT || 3001;
 // Variable made from pulling in express
 const app = express();
 // Express version for connect-session-storage
 const sess = {
-    secret: 'Super secret secret',
+    secret: process.env.SECRET,
     cookie: {},
     resave: false,
     saveUninitialized: true,
